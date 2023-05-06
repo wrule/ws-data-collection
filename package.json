@@ -1,0 +1,8 @@
+{
+  "name": "ws-data-collection",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "repository": "https://github.com/wrule/ws-data-collection.git",
+  "license": "MIT",
+  "private": false
+}
