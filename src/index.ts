@@ -1,6 +1,6 @@
 import 'global-agent/bootstrap';
 
-const { WebsocketStream } = require('@binance/connector');
+import { WebsocketStream } from '@binance/connector';
 
 // define callbacks for different events
 const callbacks = {
