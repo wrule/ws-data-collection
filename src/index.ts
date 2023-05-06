@@ -2,7 +2,7 @@ import 'global-agent/bootstrap';
 import { WebsocketStream } from '@binance/connector';
 import fs from 'fs';
 
-let symbol = 'btcusdt';
+let symbol = 'ethusdt';
 let file_name = `${symbol}-${Number(new Date())}.json`;
 
 // define callbacks for different events
