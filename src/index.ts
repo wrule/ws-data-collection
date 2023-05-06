@@ -1,22 +1,19 @@
 import 'global-agent/bootstrap';
 
-import { Console } from "console"
-
-const { WebsocketStream } = require('@binance/connector')
-const logger = new Console({ stdout: process.stdout, stderr: process.stderr })
+const { WebsocketStream } = require('@binance/connector');
 
 // define callbacks for different events
 const callbacks = {
-  open: () => logger.debug('Connected with Websocket server'),
-  close: () => logger.debug('Disconnected with Websocket server'),
+  open: () => console.log('Connected with Websocket server'),
+  close: () => console.log('Disconnected with Websocket server'),
   message: (data: any) => {
     const obj = JSON.parse(data);
     console.log(obj.a, obj.A, obj.b, obj.B);
   },
 }
 
-const websocketStreamClient = new WebsocketStream({ logger, callbacks })
+const websocketStreamClient = new WebsocketStream({ callbacks });
 // subscribe ticker stream
-websocketStreamClient.ticker('btcusdt')
+websocketStreamClient.ticker('btcusdt');
 // close websocket stream
 // setTimeout(() => websocketStreamClient.disconnect(), 6000)
