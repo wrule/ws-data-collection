@@ -2,6 +2,11 @@
   "name": "ws-data-collection",
   "version": "0.1.0",
   "main": "dist/index.js",
+  "scripts": {
+    "dev": "node dist/index.js",
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
   "repository": "https://github.com/wrule/ws-data-collection.git",
   "license": "MIT",
   "private": false
