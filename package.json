@@ -12,6 +12,7 @@
   "private": false,
   "dependencies": {
     "@binance/connector": "^3.0.0-rc.2",
-    "@types/node": "^20.1.0"
+    "@types/node": "^20.1.0",
+    "global-agent": "^3.0.0"
   }
 }
