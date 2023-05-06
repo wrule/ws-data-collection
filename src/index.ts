@@ -1,3 +1,5 @@
+import 'global-agent/bootstrap';
+
 import { Console } from "console"
 
 const { WebsocketStream } = require('@binance/connector')
