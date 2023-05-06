@@ -1,6 +1,9 @@
 import 'global-agent/bootstrap';
-
 import { WebsocketStream } from '@binance/connector';
+import fs from 'fs';
+
+let symbol = 'btcusdt';
+let file_name = `${symbol}-${Number(new Date())}.json`;
 
 // define callbacks for different events
 const callbacks = {
@@ -10,11 +13,10 @@ const callbacks = {
     try {
       const obj = JSON.parse(data);
       if (obj.s) {
-        const list = [
-          Number(new Date()),
-          Number(obj.b), Number(obj.B), Number(obj.a), Number(obj.A),
-        ];
-        console.log(JSON.stringify(list) + ',');
+        const list = [Number(new Date()), Number(obj.a), Number(obj.A), Number(obj.b), Number(obj.B)];
+        const line = JSON.stringify(list) + ',';
+        fs.appendFileSync(file_name, line + '\n');
+        console.log(line);
       }
     } catch (e) {
       console.log(e);
@@ -24,6 +26,6 @@ const callbacks = {
 
 const websocketStreamClient = new WebsocketStream({ callbacks });
 // subscribe ticker stream
-websocketStreamClient.bookTicker('btcusdt');
+websocketStreamClient.bookTicker(symbol);
 // close websocket stream
 // setTimeout(() => websocketStreamClient.disconnect(), 6000)
