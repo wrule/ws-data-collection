@@ -14,7 +14,8 @@ const callbacks = {
       const obj = JSON.parse(data);
       if (obj.s) {
         const list = [Number(new Date()), Number(obj.a), Number(obj.A), Number(obj.b), Number(obj.B)];
-        const line = JSON.stringify(list) + ',';
+        let line = JSON.stringify(list);
+        line = line.slice(1, line.length - 1);
         fs.appendFileSync(file_name, line + '\n');
         console.log(line);
       }
